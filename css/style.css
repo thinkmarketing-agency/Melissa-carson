@@ -1,0 +1,216 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1a2b45;
+  --gold:   #b8922a;
+  --gold-lt:#d4aa4a;
+  --cream:  #f7f4ef;
+  --text:   #2c2c2c;
+  --muted:  #6b6b6b;
+  --white:  #ffffff;
+  --radius: 18px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.13);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 6rem; /* bottom pad for sticky bar */
+}
+
+/* ===== CARD ===== */
+.card-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  border-top: 5px solid var(--gold);
+}
+
+/* ===== HEADSHOT ===== */
+.headshot-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(184,146,42,0.25);
+  flex-shrink: 0;
+  background: #c8b89a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== IDENTITY ===== */
+.identity { text-align: center; }
+
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+}
+
+/* ===== LOGOS ===== */
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-height: 60px;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.logo-wrap--team { margin-top: -0.25rem; }
+.logo-team { max-height: 50px; }
+
+/* ===== DIVIDER ===== */
+.divider {
+  width: 60%;
+  border: none;
+  border-top: 1px solid #e4ddd3;
+  margin: 0;
+}
+
+/* ===== CONTACT ===== */
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.93rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.contact-row:hover { background: var(--cream); color: var(--navy); }
+
+.contact-row .icon { font-size: 1.1rem; flex-shrink: 0; }
+
+/* ===== LINKS ===== */
+.links-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  align-items: center;
+}
+
+.site-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  border-radius: 9px;
+  border: 1.5px solid var(--gold);
+  color: var(--navy);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.site-link:hover {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+/* ===== STICKY BAR ===== */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: var(--navy);
+  z-index: 100;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.18);
+}
+
+.sticky-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.85rem 0.5rem;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: background 0.15s;
+}
+
+.sticky-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sticky-btn--call  { background: #1e6b3e; }
+.sticky-btn--text  { background: var(--navy); border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); }
+.sticky-btn--email { background: #b8350a; }
+
+.sticky-btn--call:hover  { background: #237a48; }
+.sticky-btn--text:hover  { background: #243a5a; }
+.sticky-btn--email:hover { background: #cc3d0c; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card { padding: 2rem 1.25rem 1.75rem; }
+  .name { font-size: 1.65rem; }
+  .headshot-wrap { width: 120px; height: 120px; }
+}
