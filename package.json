@@ -1,0 +1,30 @@
+{
+  "name": "melissa-carson",
+  "version": "1.0.0",
+  "description": "Drop your files into the `images/` folder with these exact filenames:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkmarketing-bend/Melissa-carson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thinkmarketing-bend/Melissa-carson/issues"
+  },
+  "homepage": "https://github.com/thinkmarketing-bend/Melissa-carson#readme",
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "vite": "^8.0.16"
+  }
+}
