@@ -362,7 +362,7 @@ body {
     gap: clamp(8px, 1.35dvh, 12px);
     justify-items: center;
     overflow: hidden;
-    padding: clamp(14px, 2dvh, 18px) 22px clamp(16px, 2.2dvh, 20px);
+    padding: clamp(34px, 4.6dvh, 42px) 22px clamp(16px, 2.2dvh, 20px);
     text-align: center;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58));
   }
