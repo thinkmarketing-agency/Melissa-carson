@@ -332,8 +332,11 @@ body {
 @media (max-width: 760px) {
   body {
     display: block;
-    min-height: 100vh;
-    padding: 10px 12px 62px;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    padding: clamp(8px, 1.5dvh, 10px) 12px 62px;
     background:
       radial-gradient(circle at 50% 38%, rgba(255,255,255,0.16), transparent 22rem),
       linear-gradient(135deg, rgba(10, 20, 12, 0.58), rgba(10, 18, 24, 0.42)),
@@ -343,22 +346,30 @@ body {
 
   .card-shell {
     width: min(100%, 430px);
+    min-height: calc(100dvh - 70px);
     margin: 0 auto;
+    display: grid;
+    align-items: center;
   }
 
   .business-card {
     aspect-ratio: auto;
-    min-height: calc(100svh - 72px);
+    height: auto;
+    min-height: 0;
     grid-template-columns: 1fr;
-    gap: 12px;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: clamp(8px, 1.35dvh, 12px);
     justify-items: center;
-    padding: 18px 22px 20px;
+    overflow: hidden;
+    padding: clamp(14px, 2dvh, 18px) 22px clamp(16px, 2.2dvh, 20px);
     text-align: center;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58));
   }
 
   .headshot {
-    width: min(58vw, 148px);
+    width: min(54vw, 148px);
+    max-height: 19dvh;
   }
 
   .rule {
@@ -369,7 +380,7 @@ body {
   .details-panel {
     width: 100%;
     justify-items: center;
-    gap: 12px;
+    gap: clamp(8px, 1.25dvh, 12px);
   }
 
   .identity h1 {
@@ -385,7 +396,7 @@ body {
   .contact-list {
     width: 100%;
     max-width: 330px;
-    gap: 6px;
+    gap: clamp(4px, 0.8dvh, 6px);
     text-align: left;
   }
 
@@ -395,7 +406,7 @@ body {
   }
 
   .service-line {
-    margin: 8px 0 -2px;
+    margin: clamp(4px, 1dvh, 8px) 0 -2px;
     font-size: 0.67rem;
     letter-spacing: 0.15em;
     text-align: center;
@@ -404,7 +415,7 @@ body {
   .save-contact {
     justify-content: center;
     min-height: 38px;
-    margin: 8px 0 -10px;
+    margin: clamp(4px, 1dvh, 8px) 0 -10px;
   }
 
   .brand-row {
@@ -412,7 +423,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px 18px;
-    margin-top: 11px;
+    margin-top: clamp(6px, 1.4dvh, 11px);
   }
 
   .stellar-logo {
