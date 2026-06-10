@@ -679,24 +679,29 @@ body {
 
 
 .fullscreen-page {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
   overflow: hidden;
-  padding: clamp(28px, 4vw, 64px);
+  display: grid;
+  place-items: center;
+  padding: 0;
   background:
     radial-gradient(circle at 48% 42%, rgba(255,255,255,0.08), transparent 32rem),
     linear-gradient(135deg, rgba(8, 15, 9, 0.34), rgba(7, 12, 17, 0.24)),
-    url('../images/bend-oregon-mill-optimized.jpg') center / cover fixed,
+    url('../images/bend-oregon-mill-optimized.jpg') center / cover,
     var(--wash);
 }
 
 .fullscreen-stage {
   position: relative;
   z-index: 1;
-  width: min(100%, 1320px);
-  min-height: calc(100vh - clamp(56px, 8vw, 128px));
+  width: min(96vw, 170.667dvh);
+  height: min(96dvh, 54vw);
   display: grid;
-  grid-template-columns: minmax(330px, 430px) minmax(220px, 310px);
-  gap: clamp(72px, 10vw, 160px);
+  grid-template-columns: 34% 24%;
+  gap: 11%;
   align-items: center;
   justify-content: center;
 }
@@ -717,13 +722,14 @@ body {
 }
 
 .fullscreen-phone-card {
-  width: min(100%, 430px);
-  gap: clamp(10px, 1.8vh, 16px);
-  padding: clamp(34px, 5vh, 48px) 28px clamp(24px, 4vh, 38px);
+  width: 100%;
+  align-content: center;
+  gap: min(1.45dvh, 1.05vw);
+  padding: min(4.4dvh, 3.1vw) min(2.7dvh, 1.9vw) min(3.3dvh, 2.35vw);
 }
 
 .fullscreen-phone-headshot {
-  width: clamp(132px, 16vw, 170px);
+  width: min(16dvh, 9vw);
   aspect-ratio: 1;
   display: block;
   border-radius: 999px;
@@ -740,7 +746,7 @@ body {
 .fullscreen-phone-identity h1 {
   margin: 0;
   color: var(--black);
-  font-size: clamp(1rem, 1.55vw, 1.24rem);
+  font-size: min(2dvh, 1.12vw);
   line-height: 1.12;
   font-weight: 800;
   letter-spacing: 0.24em;
@@ -748,30 +754,42 @@ body {
 }
 
 .fullscreen-phone-identity p {
-  margin: 9px 0 0;
+  margin: min(0.95dvh, 0.54vw) 0 0;
   color: var(--black);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1rem, 1.55vw, 1.18rem);
+  font-size: min(1.85dvh, 1.04vw);
   font-style: italic;
   letter-spacing: 0.14em;
 }
 
 .fullscreen-phone-contact-list {
   width: 100%;
-  max-width: 330px;
+  max-width: min(34dvh, 19vw);
   display: grid;
-  gap: 6px;
+  gap: min(0.7dvh, 0.42vw);
   text-align: left;
 }
 
 .fullscreen-phone-contact-list .contact-row {
-  font-size: clamp(0.86rem, 1.2vw, 0.98rem);
-  padding-right: 6px;
+  grid-template-columns: min(2.7dvh, 1.55vw) minmax(0, 1fr);
+  gap: min(1.1dvh, 0.65vw);
+  font-size: min(1.55dvh, 0.9vw);
+  padding: min(0.45dvh, 0.25vw) min(0.7dvh, 0.4vw) min(0.45dvh, 0.25vw) 0;
+}
+
+.fullscreen-phone-contact-list .contact-icon {
+  width: min(2.45dvh, 1.42vw);
+  height: min(2.45dvh, 1.42vw);
+}
+
+.fullscreen-phone-contact-list .contact-icon svg {
+  width: min(1.35dvh, 0.78vw);
+  height: min(1.35dvh, 0.78vw);
 }
 
 .fullscreen-phone-card .service-line {
-  margin: clamp(6px, 1.4vh, 12px) 0 0;
-  font-size: 0.68rem;
+  margin: min(1dvh, 0.58vw) 0 0;
+  font-size: min(1.22dvh, 0.7vw);
   letter-spacing: 0.15em;
 }
 
@@ -781,41 +799,46 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px 18px;
-  margin-top: clamp(10px, 1.8vh, 16px);
+  gap: min(0.9dvh, 0.52vw) min(1.9dvh, 1.08vw);
+  margin-top: min(1.25dvh, 0.72vw);
 }
 
 .fullscreen-phone-brand-row .stellar-logo {
-  width: clamp(132px, 14vw, 168px);
+  width: min(15dvh, 8.5vw);
 }
 
 .fullscreen-phone-brand-row .stellar-icon {
-  width: clamp(36px, 4vw, 48px);
-  height: clamp(32px, 3.7vw, 44px);
+  width: min(4.2dvh, 2.42vw);
+  height: min(3.8dvh, 2.2vw);
 }
 
 .fullscreen-phone-brand-row .team-logo {
-  width: clamp(100px, 11vw, 132px);
+  width: min(11.7dvh, 6.65vw);
 }
 
 .fullscreen-qr-panel {
-  width: min(100%, 300px);
-  gap: 14px;
-  padding: 28px 26px 30px;
+  width: 100%;
+  align-content: center;
+  gap: min(1.55dvh, 0.9vw);
+  padding: min(3dvh, 1.7vw) min(2.6dvh, 1.5vw);
 }
 
 .fullscreen-qr-panel h2 {
-  margin: -8px 0 2px;
+  margin: min(-0.8dvh, -0.45vw) 0 min(0.25dvh, 0.15vw);
   color: var(--black);
-  font-size: clamp(0.86rem, 1.3vw, 1.02rem);
+  font-size: min(1.55dvh, 0.9vw);
   line-height: 1.18;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
+.fullscreen-qr-panel .qr-kicker {
+  font-size: min(1.12dvh, 0.64vw);
+}
+
 .fullscreen-qr-frame {
-  width: clamp(150px, 16vw, 210px);
+  width: min(22dvh, 12.4vw);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -823,8 +846,8 @@ body {
 
 .fullscreen-controls {
   position: fixed;
-  right: clamp(16px, 2vw, 28px);
-  bottom: clamp(16px, 2vw, 28px);
+  right: max(14px, 1.4vw);
+  bottom: max(14px, 1.4vw);
   z-index: 5;
   display: flex;
   gap: 10px;
@@ -864,37 +887,31 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 900px) {
-  .fullscreen-page {
-    min-height: 100dvh;
-    overflow: auto;
-    padding: 18px 14px 78px;
-  }
-
+@media (max-aspect-ratio: 16 / 9) {
   .fullscreen-stage {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 14px;
+    width: 96vw;
+    height: 54vw;
   }
+}
 
-  .fullscreen-phone-card {
-    width: min(100%, 430px);
-    justify-self: center;
+@media (min-aspect-ratio: 16 / 9) {
+  .fullscreen-stage {
+    width: 170.667dvh;
+    height: 96dvh;
   }
+}
 
-  .fullscreen-qr-panel {
-    width: min(100%, 300px);
-    justify-self: center;
-  }
-
-  .fullscreen-qr-frame {
-    width: min(52vw, 190px);
-  }
-
+@media (max-width: 760px) {
   .fullscreen-controls {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
     justify-content: center;
+  }
+
+  .fullscreen-control {
+    min-height: 34px;
+    padding: 0 11px;
+    font-size: 0.58rem;
   }
 }
