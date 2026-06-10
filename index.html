@@ -80,6 +80,22 @@
   <div class="backdrop-glow" aria-hidden="true"></div>
   <main class="card-shell" aria-label="Melissa Lee Carson digital business card">
     <section class="business-card">
+      <div class="card-actions">
+        <button class="action-menu-toggle" type="button" aria-label="Open card menu" aria-expanded="false" aria-controls="cardMenu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+        </button>
+        <div class="action-menu" id="cardMenu" hidden>
+          <button class="action-menu-item" type="button" data-open-qr>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm10-2h2v2h-2v-2zm4 0h2v4h-4v-2h2v-2zm-6 4h2v4h-2v-4zm4 2h4v2h-4v-2z"/></svg>
+            QR Code
+          </button>
+          <a class="action-menu-item" href="fullscreen/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v2H7.4l4.1 4.1-1.4 1.4L6 7.4V11H4V4zm9 0h7v7h-2V7.4l-4.1 4.1-1.4-1.4L16.6 6H13V4zM6 16.6l4.1-4.1 1.4 1.4L7.4 18H11v2H4v-7h2v3.6zm11.9-4.1 1.4 1.4-4.1 4.1H19v2h-7v-7h2v3.6l3.9-4.1z"/></svg>
+            Fullscreen Mode
+          </a>
+        </div>
+      </div>
+
       <div class="portrait-panel">
         <img src="images/melissa-headshot-1.jpg" alt="Melissa Lee Carson headshot" class="headshot" />
       </div>
@@ -137,6 +153,26 @@
     </section>
   </main>
 
+  <div class="qr-overlay" id="qrOverlay" hidden>
+    <section class="qr-card" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <button class="qr-close" type="button" aria-label="Close QR code" data-close-qr>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5z"/></svg>
+      </button>
+      <p class="qr-kicker">Melissa Lee Carson</p>
+      <h2 id="qrTitle">Scan to View My Card</h2>
+      <div class="qr-frame">
+        <img src="images/melissa-qr-transparent.png" alt="QR code for Melissa Lee Carson digital card" class="qr-code" />
+      </div>
+      <div class="qr-brand-row" aria-label="Brokerage and team logos">
+        <div class="stellar-lockup">
+          <img src="images/stellar-icon-transparent.png" alt="" class="stellar-icon" />
+          <img src="images/Stellar Logo Black.png" alt="Stellar Realty NW" class="stellar-logo" />
+        </div>
+        <img src="images/mountain-sky-team-transparent.png" alt="Mountain Sky Team" class="team-logo" />
+      </div>
+    </section>
+  </div>
+
   <nav class="sticky-bar" aria-label="Quick contact actions">
     <a href="tel:+15417490139" class="sticky-btn">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2z"/></svg>
@@ -170,6 +206,52 @@
     const saveContact = document.querySelector('.save-contact');
     const blob = new Blob([vcard], { type: 'text/vcard' });
     saveContact.href = URL.createObjectURL(blob);
+
+    const menuToggle = document.querySelector('.action-menu-toggle');
+    const cardMenu = document.querySelector('.action-menu');
+    const qrOverlay = document.querySelector('#qrOverlay');
+    const openQrButton = document.querySelector('[data-open-qr]');
+    const closeQrButton = document.querySelector('[data-close-qr]');
+
+    function setMenuOpen(isOpen) {
+      cardMenu.hidden = !isOpen;
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    function openQrOverlay() {
+      setMenuOpen(false);
+      qrOverlay.hidden = false;
+      document.body.classList.add('qr-open');
+      closeQrButton.focus();
+    }
+
+    function closeQrOverlay() {
+      qrOverlay.hidden = true;
+      document.body.classList.remove('qr-open');
+      menuToggle.focus();
+    }
+
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setMenuOpen(cardMenu.hidden);
+    });
+
+    openQrButton.addEventListener('click', openQrOverlay);
+    closeQrButton.addEventListener('click', closeQrOverlay);
+    qrOverlay.addEventListener('click', (event) => {
+      if (event.target === qrOverlay) closeQrOverlay();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.card-actions')) setMenuOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (!qrOverlay.hidden) closeQrOverlay();
+        setMenuOpen(false);
+      }
+    });
   </script>
 </body>
 </html>

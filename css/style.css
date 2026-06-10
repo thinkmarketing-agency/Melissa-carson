@@ -80,6 +80,186 @@ body {
   background: linear-gradient(135deg, rgba(255,255,255,0.86), transparent 28%, transparent 72%, rgba(79,143,47,0.12));
 }
 
+.card-actions {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+}
+
+.action-menu-toggle,
+.qr-close {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 999px;
+  color: var(--black);
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255,255,255,0.62);
+  cursor: pointer;
+  backdrop-filter: blur(14px) saturate(1.12);
+  -webkit-backdrop-filter: blur(14px) saturate(1.12);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.action-menu-toggle:hover,
+.qr-close:hover {
+  border-color: rgba(47, 94, 35, 0.36);
+  background: rgba(255, 255, 255, 0.68);
+  transform: translateY(-1px);
+}
+
+.action-menu-toggle svg,
+.qr-close svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.action-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 184px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.7);
+  backdrop-filter: blur(18px) saturate(1.14);
+  -webkit-backdrop-filter: blur(18px) saturate(1.14);
+}
+
+.action-menu[hidden],
+.qr-overlay[hidden] {
+  display: none;
+}
+
+.action-menu-item {
+  width: 100%;
+  text-decoration: none;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--black);
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.action-menu-item:hover {
+  color: var(--green-dark);
+  background: rgba(79, 143, 47, 0.1);
+}
+
+.action-menu-item svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  background: rgba(6, 10, 8, 0.28);
+  backdrop-filter: blur(8px) saturate(1.04);
+  -webkit-backdrop-filter: blur(8px) saturate(1.04);
+}
+
+.qr-card {
+  position: relative;
+  width: min(100%, 430px);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: clamp(32px, 5vw, 46px) clamp(24px, 5vw, 38px) 34px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  color: var(--black);
+  text-align: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58));
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.78), inset 0 -1px 0 rgba(255,255,255,0.18);
+  backdrop-filter: blur(24px) saturate(1.18);
+  -webkit-backdrop-filter: blur(24px) saturate(1.18);
+}
+
+.qr-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.qr-kicker {
+  margin: 4px 0 -8px;
+  color: var(--green-dark);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.qr-card h2 {
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.qr-frame {
+  width: min(72vw, 250px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.qr-code {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.1));
+}
+
+.qr-brand-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 26px);
+}
+
+.qr-brand-row .stellar-logo {
+  width: clamp(126px, 33vw, 158px);
+}
+
+.qr-brand-row .stellar-icon {
+  width: clamp(34px, 8vw, 44px);
+  height: clamp(30px, 7vw, 40px);
+}
+
+.qr-brand-row .team-logo {
+  width: clamp(98px, 27vw, 134px);
+}
+
 .portrait-panel {
   position: relative;
   display: grid;
@@ -434,6 +614,39 @@ body {
     width: 99px;
   }
 
+  .card-actions {
+    top: 10px;
+    right: 10px;
+  }
+
+  .action-menu-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .action-menu {
+    min-width: 178px;
+  }
+
+  .qr-overlay {
+    padding: 10px 12px 64px;
+  }
+
+  .qr-card {
+    width: min(100%, 430px);
+    gap: clamp(12px, 2dvh, 18px);
+    padding: clamp(34px, 5dvh, 42px) 22px clamp(24px, 3dvh, 30px);
+  }
+
+  .qr-frame {
+    width: min(68vw, 238px);
+  }
+
+  .qr-brand-row {
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+
   .sticky-bar {
     display: grid;
   }
@@ -454,5 +667,234 @@ body {
 
   .business-card::before {
     background: linear-gradient(135deg, rgba(255,255,255,0.42), transparent 24%, transparent 76%, rgba(79,143,47,0.08));
+  }
+
+  .qr-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+    border-color: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(16px) saturate(1.14);
+    -webkit-backdrop-filter: blur(16px) saturate(1.14);
+  }
+}
+
+
+.fullscreen-page {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 64px);
+  background:
+    radial-gradient(circle at 48% 42%, rgba(255,255,255,0.08), transparent 32rem),
+    linear-gradient(135deg, rgba(8, 15, 9, 0.34), rgba(7, 12, 17, 0.24)),
+    url('../images/bend-oregon-mill-optimized.jpg') center / cover fixed,
+    var(--wash);
+}
+
+.fullscreen-stage {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1320px);
+  min-height: calc(100vh - clamp(56px, 8vw, 128px));
+  display: grid;
+  grid-template-columns: minmax(330px, 430px) minmax(220px, 310px);
+  gap: clamp(72px, 10vw, 160px);
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-phone-card,
+.fullscreen-qr-panel {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  color: var(--black);
+  text-align: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58));
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.78), inset 0 -1px 0 rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(1.16);
+  -webkit-backdrop-filter: blur(18px) saturate(1.16);
+}
+
+.fullscreen-phone-card {
+  width: min(100%, 430px);
+  gap: clamp(10px, 1.8vh, 16px);
+  padding: clamp(34px, 5vh, 48px) 28px clamp(24px, 4vh, 38px);
+}
+
+.fullscreen-phone-headshot {
+  width: clamp(132px, 16vw, 170px);
+  aspect-ratio: 1;
+  display: block;
+  border-radius: 999px;
+  object-fit: cover;
+  filter: grayscale(8%) contrast(1.02);
+}
+
+.fullscreen-phone-rule {
+  width: 68%;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.56);
+}
+
+.fullscreen-phone-identity h1 {
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(1rem, 1.55vw, 1.24rem);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.fullscreen-phone-identity p {
+  margin: 9px 0 0;
+  color: var(--black);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1rem, 1.55vw, 1.18rem);
+  font-style: italic;
+  letter-spacing: 0.14em;
+}
+
+.fullscreen-phone-contact-list {
+  width: 100%;
+  max-width: 330px;
+  display: grid;
+  gap: 6px;
+  text-align: left;
+}
+
+.fullscreen-phone-contact-list .contact-row {
+  font-size: clamp(0.86rem, 1.2vw, 0.98rem);
+  padding-right: 6px;
+}
+
+.fullscreen-phone-card .service-line {
+  margin: clamp(6px, 1.4vh, 12px) 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+}
+
+.fullscreen-phone-brand-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: clamp(10px, 1.8vh, 16px);
+}
+
+.fullscreen-phone-brand-row .stellar-logo {
+  width: clamp(132px, 14vw, 168px);
+}
+
+.fullscreen-phone-brand-row .stellar-icon {
+  width: clamp(36px, 4vw, 48px);
+  height: clamp(32px, 3.7vw, 44px);
+}
+
+.fullscreen-phone-brand-row .team-logo {
+  width: clamp(100px, 11vw, 132px);
+}
+
+.fullscreen-qr-panel {
+  width: min(100%, 300px);
+  gap: 14px;
+  padding: 28px 26px 30px;
+}
+
+.fullscreen-qr-panel h2 {
+  margin: -8px 0 2px;
+  color: var(--black);
+  font-size: clamp(0.86rem, 1.3vw, 1.02rem);
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fullscreen-qr-frame {
+  width: clamp(150px, 16vw, 210px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.fullscreen-controls {
+  position: fixed;
+  right: clamp(16px, 2vw, 28px);
+  bottom: clamp(16px, 2vw, 28px);
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+}
+
+.fullscreen-control {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  border-radius: 999px;
+  color: var(--paper);
+  background: rgba(17, 17, 17, 0.38);
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(14px) saturate(1.12);
+  -webkit-backdrop-filter: blur(14px) saturate(1.12);
+}
+
+.fullscreen-control:hover {
+  background: rgba(47, 94, 35, 0.72);
+}
+
+:fullscreen .fullscreen-controls {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+:fullscreen .fullscreen-controls:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .fullscreen-page {
+    min-height: 100dvh;
+    overflow: auto;
+    padding: 18px 14px 78px;
+  }
+
+  .fullscreen-stage {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .fullscreen-phone-card {
+    width: min(100%, 430px);
+    justify-self: center;
+  }
+
+  .fullscreen-qr-panel {
+    width: min(100%, 300px);
+    justify-self: center;
+  }
+
+  .fullscreen-qr-frame {
+    width: min(52vw, 190px);
+  }
+
+  .fullscreen-controls {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    justify-content: center;
   }
 }

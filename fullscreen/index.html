@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melissa Lee Carson | Fullscreen Digital Card</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet" />
+</head>
+<body class="fullscreen-page">
+  <div class="backdrop-glow" aria-hidden="true"></div>
+
+  <main class="fullscreen-stage" aria-label="Melissa Lee Carson fullscreen sharing display">
+    <section class="fullscreen-phone-card" aria-label="Melissa Lee Carson digital card">
+      <img src="../images/melissa-headshot-1.jpg" alt="Melissa Lee Carson headshot" class="fullscreen-phone-headshot" />
+      <div class="fullscreen-phone-rule" aria-hidden="true"></div>
+
+      <header class="fullscreen-phone-identity">
+        <h1>Melissa Lee Carson</h1>
+        <p>Real Estate Agent</p>
+      </header>
+
+      <div class="fullscreen-phone-contact-list" aria-label="Contact information">
+        <a href="tel:+15417490139" class="contact-row">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2z"/></svg></span>
+          <span>541-749-0139</span>
+        </a>
+        <a href="mailto:melissa@melissacarson.realtor" class="contact-row">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2zm8 7.2L4 7.8V17h16V7.8l-8 4.4zm0-2.3L18.6 7H5.4L12 9.9z"/></svg></span>
+          <span>melissa@melissacarson.realtor</span>
+        </a>
+        <a href="https://maps.google.com/?q=109+NW+Greenwood+Ave+%23105+Bend+OR+97703" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c4 0 7 3 7 7 0 5.2-7 13-7 13S5 14.2 5 9c0-4 3-7 7-7zm0 9.8A2.8 2.8 0 1 0 12 6a2.8 2.8 0 0 0 0 5.8z"/></svg></span>
+          <span>109 NW Greenwood Ave. #105,<br>Bend, OR 97703</span>
+        </a>
+        <a href="https://www.mountainskyteam.com" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3.2a15.8 15.8 0 0 0-1.1-5A8.1 8.1 0 0 1 18.9 11zM12 4.1c.8 1.2 1.5 3.2 1.7 5.9h-3.4c.2-2.7.9-4.7 1.7-5.9zM4.2 13h3.1c.1 1.8.5 3.5 1.1 5a8 8 0 0 1-4.2-5zm3.1-2H4.2a8 8 0 0 1 4.2-5c-.6 1.5-1 3.2-1.1 5zm4.7 7.9c-.8-1.2-1.5-3.2-1.7-5.9h3.4c-.2 2.7-.9 4.7-1.7 5.9zm2.6-.9c.6-1.5 1-3.2 1.1-5h3.2a8.1 8.1 0 0 1-4.3 5z"/></svg></span>
+          <span>mountainskyteam.com</span>
+        </a>
+      </div>
+
+      <p class="service-line">Serving Bend & Central Oregon</p>
+
+      <div class="fullscreen-phone-brand-row" aria-label="Brokerage and team logos">
+        <div class="stellar-lockup">
+          <img src="../images/stellar-icon-transparent.png" alt="" class="stellar-icon" />
+          <img src="../images/Stellar Logo Black.png" alt="Stellar Realty NW" class="stellar-logo" />
+        </div>
+        <img src="../images/mountain-sky-team-transparent.png" alt="Mountain Sky Team" class="team-logo" />
+      </div>
+    </section>
+
+    <section class="fullscreen-qr-panel" aria-label="QR code to view Melissa Lee Carson digital card">
+      <p class="qr-kicker">Share the Card</p>
+      <h2>Scan to View My Card</h2>
+      <div class="fullscreen-qr-frame">
+        <img src="../images/melissa-qr-transparent.png" alt="QR code for Melissa Lee Carson digital card" class="qr-code" />
+      </div>
+    </section>
+  </main>
+
+  <div class="fullscreen-controls">
+    <a href="../" class="fullscreen-control">Back to Card</a>
+    <button class="fullscreen-control" type="button" data-enter-fullscreen>Enter Fullscreen</button>
+  </div>
+
+  <script>
+    const fullscreenButton = document.querySelector('[data-enter-fullscreen]');
+
+    function updateFullscreenButton() {
+      fullscreenButton.textContent = document.fullscreenElement ? 'Exit Fullscreen' : 'Enter Fullscreen';
+    }
+
+    fullscreenButton.addEventListener('click', async () => {
+      try {
+        if (document.fullscreenElement) {
+          await document.exitFullscreen();
+        } else {
+          await document.documentElement.requestFullscreen();
+        }
+      } catch (error) {
+        fullscreenButton.textContent = 'Fullscreen Unavailable';
+        window.setTimeout(updateFullscreenButton, 1800);
+      }
+    });
+
+    document.addEventListener('fullscreenchange', updateFullscreenButton);
+  </script>
+</body>
+</html>
