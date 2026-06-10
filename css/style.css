@@ -602,7 +602,7 @@ body {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px 18px;
+    gap: 8px 14px;
     margin-top: clamp(6px, 1.4dvh, 11px);
   }
 
@@ -686,7 +686,7 @@ body {
   overflow: hidden;
   display: grid;
   place-items: center;
-  padding: 0;
+  padding: clamp(18px, 3vw, 46px);
   background:
     radial-gradient(circle at 48% 42%, rgba(255,255,255,0.08), transparent 32rem),
     linear-gradient(135deg, rgba(8, 15, 9, 0.34), rgba(7, 12, 17, 0.24)),
@@ -697,13 +697,12 @@ body {
 .fullscreen-stage {
   position: relative;
   z-index: 1;
-  width: min(96vw, 170.667dvh);
-  height: min(96dvh, 54vw);
-  display: grid;
-  grid-template-columns: 34% 24%;
-  gap: 11%;
+  width: min(100%, 1160px);
+  height: min(100%, 760px);
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: clamp(68px, 8vw, 124px);
 }
 
 .fullscreen-phone-card,
@@ -722,14 +721,15 @@ body {
 }
 
 .fullscreen-phone-card {
-  width: 100%;
+  width: clamp(330px, 28vw, 390px);
+  max-height: min(84dvh, 680px);
   align-content: center;
-  gap: min(1.45dvh, 1.05vw);
-  padding: min(4.4dvh, 3.1vw) min(2.7dvh, 1.9vw) min(3.3dvh, 2.35vw);
+  gap: clamp(8px, 1.45dvh, 14px);
+  padding: clamp(24px, 3.3dvh, 34px) clamp(18px, 1.65vw, 22px) clamp(20px, 2.7dvh, 28px);
 }
 
 .fullscreen-phone-headshot {
-  width: min(16dvh, 9vw);
+  width: clamp(118px, 15dvh, 156px);
   aspect-ratio: 1;
   display: block;
   border-radius: 999px;
@@ -746,50 +746,50 @@ body {
 .fullscreen-phone-identity h1 {
   margin: 0;
   color: var(--black);
-  font-size: min(2dvh, 1.12vw);
+  font-size: clamp(0.98rem, 1.9dvh, 1.12rem);
   line-height: 1.12;
   font-weight: 800;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .fullscreen-phone-identity p {
-  margin: min(0.95dvh, 0.54vw) 0 0;
+  margin: clamp(5px, 0.9dvh, 8px) 0 0;
   color: var(--black);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: min(1.85dvh, 1.04vw);
+  font-size: clamp(0.98rem, 1.85dvh, 1.14rem);
   font-style: italic;
   letter-spacing: 0.14em;
 }
 
 .fullscreen-phone-contact-list {
   width: 100%;
-  max-width: min(34dvh, 19vw);
+  max-width: 315px;
   display: grid;
-  gap: min(0.7dvh, 0.42vw);
+  gap: clamp(4px, 0.75dvh, 6px);
   text-align: left;
 }
 
 .fullscreen-phone-contact-list .contact-row {
-  grid-template-columns: min(2.7dvh, 1.55vw) minmax(0, 1fr);
-  gap: min(1.1dvh, 0.65vw);
-  font-size: min(1.55dvh, 0.9vw);
-  padding: min(0.45dvh, 0.25vw) min(0.7dvh, 0.4vw) min(0.45dvh, 0.25vw) 0;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px;
+  font-size: clamp(0.82rem, 1.55dvh, 0.94rem);
+  padding: 3px 6px 3px 0;
 }
 
 .fullscreen-phone-contact-list .contact-icon {
-  width: min(2.45dvh, 1.42vw);
-  height: min(2.45dvh, 1.42vw);
+  width: 22px;
+  height: 22px;
 }
 
 .fullscreen-phone-contact-list .contact-icon svg {
-  width: min(1.35dvh, 0.78vw);
-  height: min(1.35dvh, 0.78vw);
+  width: 13px;
+  height: 13px;
 }
 
 .fullscreen-phone-card .service-line {
-  margin: min(1dvh, 0.58vw) 0 0;
-  font-size: min(1.22dvh, 0.7vw);
+  margin: clamp(4px, 1dvh, 8px) 0 0;
+  font-size: clamp(0.58rem, 1.12dvh, 0.67rem);
   letter-spacing: 0.15em;
 }
 
@@ -799,34 +799,34 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: min(0.9dvh, 0.52vw) min(1.9dvh, 1.08vw);
-  margin-top: min(1.25dvh, 0.72vw);
+  gap: 8px 18px;
+  margin-top: clamp(6px, 1.35dvh, 11px);
 }
 
 .fullscreen-phone-brand-row .stellar-logo {
-  width: min(15dvh, 8.5vw);
+  width: clamp(120px, 14.2dvh, 150px);
 }
 
 .fullscreen-phone-brand-row .stellar-icon {
-  width: min(4.2dvh, 2.42vw);
-  height: min(3.8dvh, 2.2vw);
+  width: clamp(32px, 4dvh, 42px);
+  height: clamp(29px, 3.7dvh, 38px);
 }
 
 .fullscreen-phone-brand-row .team-logo {
-  width: min(11.7dvh, 6.65vw);
+  width: clamp(88px, 10.8dvh, 112px);
 }
 
 .fullscreen-qr-panel {
-  width: 100%;
+  width: clamp(220px, 18vw, 270px);
   align-content: center;
-  gap: min(1.55dvh, 0.9vw);
-  padding: min(3dvh, 1.7vw) min(2.6dvh, 1.5vw);
+  gap: clamp(10px, 1.5dvh, 14px);
+  padding: clamp(22px, 3dvh, 30px) clamp(20px, 2vw, 26px);
 }
 
 .fullscreen-qr-panel h2 {
-  margin: min(-0.8dvh, -0.45vw) 0 min(0.25dvh, 0.15vw);
+  margin: -6px 0 2px;
   color: var(--black);
-  font-size: min(1.55dvh, 0.9vw);
+  font-size: clamp(0.78rem, 1.55dvh, 0.92rem);
   line-height: 1.18;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -834,11 +834,11 @@ body {
 }
 
 .fullscreen-qr-panel .qr-kicker {
-  font-size: min(1.12dvh, 0.64vw);
+  font-size: clamp(0.54rem, 1.05dvh, 0.66rem);
 }
 
 .fullscreen-qr-frame {
-  width: min(22dvh, 12.4vw);
+  width: clamp(140px, 19dvh, 190px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -887,21 +887,23 @@ body {
   opacity: 1;
 }
 
-@media (max-aspect-ratio: 16 / 9) {
-  .fullscreen-stage {
-    width: 96vw;
-    height: 54vw;
-  }
-}
-
-@media (min-aspect-ratio: 16 / 9) {
-  .fullscreen-stage {
-    width: 170.667dvh;
-    height: 96dvh;
-  }
-}
-
 @media (max-width: 760px) {
+  .fullscreen-stage {
+    width: 720px;
+    max-width: calc(100vw - 20px);
+    transform: scale(min(1, calc((100vw - 20px) / 720)));
+    transform-origin: center;
+    gap: 36px;
+  }
+
+  .fullscreen-phone-card {
+    width: 318px;
+  }
+
+  .fullscreen-qr-panel {
+    width: 210px;
+  }
+
   .fullscreen-controls {
     right: 10px;
     bottom: 10px;
