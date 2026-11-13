@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Melissa Lee Carson | be.cards",
+  "short_name": "Melissa Lee Carson",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/card-features/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/card-features/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
